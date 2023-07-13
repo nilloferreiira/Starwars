@@ -1,26 +1,26 @@
 import { Background } from "@/components/Background";
+import { Filmes } from "@/components/FIlmes";
 import { Personagens } from "@/components/Personagens";
 import useStarwars from "@/data/hooks/useStarwars";
 
 export default function PaginaStarwars() {
-  const { processando, personagens, obterPersonagens } = useStarwars();
+  const { processando, personagens, filmes, voltar, selecionarPersonagem } = useStarwars();
   
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      
+    
+    <div className="flex flex-col justify-center items-center h-screen relative">
       <Background />
 
       {processando ? (
         <div>Processando...</div>
-      ) : personagens.length > 0 ?(
-        <Personagens personagens={personagens}  />
+      ) : filmes.length > 0 ?(
+        <Filmes filmes={filmes} voltar={voltar}/>
+        ) : personagens.length > 0 ?(
+        <Personagens personagens={personagens} selecionar={selecionarPersonagem} />
       ) : (
         <div>Nenhum personagem</div>
       )}
 
-<button className="bg-sky-600 p-2 rounded-lg" onClick={obterPersonagens}>
-        Obter
-      </button>
 
     </div>
   );

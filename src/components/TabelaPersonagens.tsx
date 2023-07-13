@@ -2,7 +2,7 @@ interface PersonagensProps {
     personagens: any[]
 }
 
-export function RenderPersonagens(props: PersonagensProps) {
+export function TabelaPersonagens(props: PersonagensProps) {
     return (
         <ul>
             {props.personagens.map((personagem: any) => {
